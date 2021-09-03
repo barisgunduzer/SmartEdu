@@ -119,5 +119,4 @@ dist
 .pnp.*
 
 # Project files
-template/
 .prettierrc
