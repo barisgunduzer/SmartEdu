@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const pageRouter = require('./routers/pageRouter');
 const courseRouter = require('./routers/courseRouter');
+const categoryRouter = require('./routers/categoryRouter');
 const app = express();
 
 //Connect DB
@@ -20,11 +21,11 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 //Routes
 app.use('/', pageRouter);
 app.use('/courses', courseRouter);
+app.use('/categories', categoryRouter);
 
 //Configs
 const port = 3000;
 
-app.listen(port, () => {
-  //console.log(`App started on port ${port}`);
+app.listen(port, () => {  
   console.log(`App listening at http://localhost:${port}`);
 });
