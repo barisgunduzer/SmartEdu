@@ -26,7 +26,7 @@ exports.loginUser = async (req, res) => {
           if (same) {
             // USER SESSION
             req.session.userID = user._id;
-            res.status(200).send('YOU ARE LOGGED IN');
+            res.status(200).redirect('/');
           }
         });
       }
@@ -37,4 +37,10 @@ exports.loginUser = async (req, res) => {
       error,
     });
   }
+};
+
+exports.logoutUser = (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/');
+  });
 };
